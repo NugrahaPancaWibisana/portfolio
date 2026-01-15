@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* =========================
+   JetBrains Mono – Optimized
+   400 / 500 / 600 / 700
+========================= */
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   Tailwind v4 Theme
+========================= */
+
+@theme {
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* =========================
+   Base
+========================= */
+
+@layer base {
+  body {
+    font-family: var(--font-mono);
+  }
+
+  section:first-of-type {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+  }
+}

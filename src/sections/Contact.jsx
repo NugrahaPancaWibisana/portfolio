@@ -3,7 +3,12 @@ import { contactData } from "../data/contact.data";
 
 const ContactIcon = {
   email: (
-    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -13,7 +18,12 @@ const ContactIcon = {
     </svg>
   ),
   phone: (
-    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -23,7 +33,12 @@ const ContactIcon = {
     </svg>
   ),
   location: (
-    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -85,22 +100,18 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Create mailto link with form data
+
     const mailtoLink = `mailto:${contactData.contactInfo[0].value}?subject=${encodeURIComponent(
-      formData.subject
+      formData.subject,
     )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
     )}`;
-    
-    // Open default email client
+
     window.location.href = mailtoLink;
-    
-    // Show success message
+
     setFormStatus({ submitted: true });
     setFormData({ name: "", email: "", subject: "", message: "" });
-    
-    // Reset success message after 5 seconds
+
     setTimeout(() => {
       setFormStatus({ submitted: false });
     }, 5000);
@@ -109,30 +120,27 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex min-h-screen w-full items-center justify-center px-4 py-32 sm:px-6 sm:py-16 lg:px-8"
+      className="flex min-h-screen w-full items-center justify-center px-4 py-16 sm:px-6 lg:px-8"
       aria-labelledby="contact-heading"
     >
       <div className="w-full max-w-7xl">
-        {/* Section Header */}
         <header className="mb-12 text-center">
           <h2
             id="contact-heading"
-            className="text-2xl font-normal sm:font-bold sm:text-3xl lg:text-4xl"
+            className="text-2xl font-normal sm:text-3xl sm:font-bold lg:text-4xl"
           >
             {contactData.heading}
           </h2>
           <p className="mt-3 text-lg font-normal text-gray-700 sm:text-2xl lg:text-3xl">
             {contactData.subheading}
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm font-normal leading-relaxed text-black/60">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed font-normal text-black/60">
             {contactData.description}
           </p>
         </header>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Left Column - Contact Information */}
           <div className="space-y-6">
-            {/* Contact Cards */}
             <div className="space-y-4">
               {contactData.contactInfo.map((info, index) => (
                 <article
@@ -162,7 +170,6 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Social Media Links */}
             <div className="rounded-lg border-2 p-6">
               <h3 className="mb-4 font-semibold">Connect With Me</h3>
               <div className="flex flex-wrap gap-3">
@@ -181,7 +188,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Availability Status */}
             <div className="rounded-lg border-2 p-6">
               <div className="flex items-center gap-3">
                 <span
@@ -206,11 +212,8 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
           <div className="rounded-lg border-2 p-6 lg:p-8">
             <h3 className="mb-6 text-xl font-semibold">Send Me a Message</h3>
-
-            {/* Success Message */}
             {formStatus.submitted && (
               <div
                 className="mb-6 rounded-lg border-2 border-green-500 bg-green-50 p-4"
@@ -228,7 +231,6 @@ export default function Contact() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name Input */}
               <div>
                 <label
                   htmlFor="name"
@@ -245,11 +247,11 @@ export default function Contact() {
                   required
                   className="w-full rounded-lg border-2 px-4 py-3 transition-colors focus:border-black focus:outline-none"
                   placeholder="John Doe"
+                  autoComplete="name"
                   aria-required="true"
                 />
               </div>
 
-              {/* Email Input */}
               <div>
                 <label
                   htmlFor="email"
@@ -266,11 +268,11 @@ export default function Contact() {
                   required
                   className="w-full rounded-lg border-2 px-4 py-3 transition-colors focus:border-black focus:outline-none"
                   placeholder="john@example.com"
+                  autoComplete="email"
                   aria-required="true"
                 />
               </div>
 
-              {/* Subject Input */}
               <div>
                 <label
                   htmlFor="subject"
@@ -291,7 +293,6 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Message Textarea */}
               <div>
                 <label
                   htmlFor="message"
@@ -312,7 +313,6 @@ export default function Contact() {
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full rounded-lg bg-black px-6 py-3 font-medium text-white transition-colors hover:bg-black/80"

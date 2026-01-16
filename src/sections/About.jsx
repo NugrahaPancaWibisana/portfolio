@@ -58,7 +58,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="flex min-h-screen w-full items-center justify-center px-4 py-1 sm:px-6 sm:py-16 lg:px-8"
+      className="flex min-h-screen w-full items-center justify-center px-4 py-16 sm:px-6 lg:px-8"
       aria-labelledby="about-heading"
     >
       <div className="flex w-full max-w-7xl flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-20">

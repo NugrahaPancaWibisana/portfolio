@@ -38,15 +38,15 @@ const ProjectCard = ({ project, index }) => {
             </svg>
           </div>
         )}
-        
+
         {project.status && (
           <span
-            className={`absolute right-3 top-3 rounded-full px-3 py-1 text-xs font-medium ${
+            className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-medium ${
               project.status === "Completed"
                 ? "bg-green-100 text-green-700"
                 : project.status === "In Progress"
-                ? "bg-blue-100 text-blue-700"
-                : "bg-gray-100 text-gray-700"
+                  ? "bg-blue-100 text-blue-700"
+                  : "bg-gray-100 text-gray-700"
             }`}
           >
             {project.status}
@@ -74,7 +74,7 @@ const ProjectCard = ({ project, index }) => {
             <h4 className="mb-2 text-sm font-medium">Key Features:</h4>
             <ul className="space-y-1 pl-5">
               {project.features.map((feature, idx) => (
-                <li key={idx} className="text-sm text-black/60 list-disc">
+                <li key={idx} className="list-disc text-sm text-black/60">
                   {feature}
                 </li>
               ))}
@@ -146,21 +146,21 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="flex min-h-screen w-full items-center justify-center px-4 py-1 sm:px-6 sm:py-16 lg:px-8"
+      className="flex min-h-screen w-full items-center justify-center px-4 py-16 sm:px-6 lg:px-8"
       aria-labelledby="projects-heading"
     >
       <div className="w-full max-w-7xl">
         <header className="mb-12 text-center">
           <h2
             id="projects-heading"
-            className="text-2xl font-normal sm:font-bold sm:text-3xl lg:text-4xl"
+            className="text-2xl font-normal sm:text-3xl sm:font-bold lg:text-4xl"
           >
             {projectsData.heading}
           </h2>
           <p className="mt-3 text-lg font-normal text-gray-700 sm:text-2xl lg:text-3xl">
             {projectsData.subheading}
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-sm font-normal leading-relaxed text-black/60">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed font-normal text-black/60">
             {projectsData.description}
           </p>
         </header>
@@ -187,7 +187,9 @@ export default function Projects() {
 
         <div className="mt-12 flex flex-col items-center justify-center gap-4 rounded-lg border-2 p-8 sm:flex-row">
           <div className="text-center sm:text-left">
-            <p className="text-lg font-semibold">Interested in working together?</p>
+            <p className="text-lg font-semibold">
+              Interested in working together?
+            </p>
             <p className="mt-1 text-sm text-black/60">
               Let's discuss your next project
             </p>
